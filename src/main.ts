@@ -6,7 +6,11 @@ try {
   const settings = config();
   const client = new Client({
     intents: [GatewayIntentBits.Guilds],
-    makeCache: Options.cacheWithLimits({ MessageManager: 0 }),
+    makeCache: Options.cacheWithLimits({
+      MessageManager: 0,
+      UserManager: 0,
+      GuildMemberManager: 0,
+    }),
     allowedMentions: { parse: [] },
   });
   const bot = new MeasureBot(settings.guild);
