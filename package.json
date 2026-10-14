@@ -1,0 +1,29 @@
+{
+  "name": "measuremoss",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private-first Discord unit conversions for international communities",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "lint": "biome check .",
+    "check": "npm run lint && npm test && node scripts/check-supply.mjs",
+    "audit": "npm audit --audit-level=low",
+    "setup": "node scripts/setup.mjs",
+    "register": "node --env-file-if-exists=.env dist/register.js",
+    "start": "node --env-file-if-exists=.env dist/main.js"
+  },
+  "dependencies": {
+    "discord.js": "14.27.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "24.10.0",
+    "typescript": "7.0.2"
+  }
+}
